@@ -54,7 +54,12 @@ export class {{{name}}} {
             {{#if parametersQuery}}
             query: {
                 {{#each parametersQuery}}
+                {{#equals prop 'filter'}}
+                ...{{{prop}}},
+                {{/equals}}
+                {{#notEquals prop 'filter'}}
                 '{{{prop}}}': {{{name}}},
+                {{/notEquals}}
                 {{/each}}
             },
             {{/if}}
